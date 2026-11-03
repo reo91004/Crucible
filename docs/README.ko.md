@@ -149,7 +149,7 @@ flowchart LR
 
 Claude Code에서도 같은 CLI와 프로젝트 상태를 사용합니다. 호스트 에이전트용 지침은 [ai-prompts](https://github.com/reo91004/ai-prompts)의 공통 [Crucible skill](https://github.com/reo91004/ai-prompts/tree/main/skills/crucible)을 통해 OpenCode·Claude Code·Codex에서 사용할 수 있습니다.
 
-공통 skill을 쓸 때는 `CRUCIBLE_ROOT`를 Crucible checkout 경로로 지정하거나 CLI를 `PATH`에 설치합니다. Claude Code에서는 `/crucible debate QUESTION`으로 호출하거나 설치한 skill에 증거 조사를 자연어로 요청합니다. prompt kit은 지침과 실행기를 제공하고, 별도 Crucible 엔진이 실행을 맡습니다. 연구 상태는 kit에 복사하지 않고 연구 프로젝트의 `.crucible/`에 둡니다.
+기본 ai-prompts 설치기는 홈 아래의 기존 엔진을 찾거나 `~/Crucible`에 내려받아 경로를 자동 기록합니다. 따로 경로를 정할 필요가 없고 기존 저장소는 보존합니다. `CRUCIBLE_ROOT`나 PATH의 CLI로 명시적인 선택도 가능합니다. Claude Code에서는 `/crucible debate QUESTION`으로 호출하거나 설치한 skill에 증거 조사를 자연어로 요청합니다. prompt kit은 지침과 실행기를 제공하고, 별도 Crucible 엔진이 실행을 맡습니다. 연구 상태는 kit에 복사하지 않고 연구 프로젝트의 `.crucible/`에 둡니다.
 
 kit 없이 CLI만 직접 사용해도 됩니다.
 

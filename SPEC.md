@@ -73,4 +73,4 @@ Events form a durable outbox. Delivery is explicit; ack follows successful sessi
 
 OpenCode V2 bridge uses setup(ctx) with typed native tools, fixed project scope and argv. No arbitrary shell/project path from model input. The worker progresses without a live TUI. No periodic LLM polling starts.
 
-The ai-prompts shared skill locates the separate engine through CRUCIBLE_ROOT, installed CLI or ~/reo/crucible. Research state is not copied into the kit. Linux is integration-tested. macOS ps-based process identity has mocked tests only; Windows is outside the fcntl/process-group execution path.
+The ai-prompts shared skill locates the separate engine through CRUCIBLE_ROOT, an installed CLI, a recorded installation connection or HOME discovery. Research state is not copied into the kit. Linux is integration-tested. macOS ps-based process identity has mocked tests only; Windows is outside the fcntl/process-group execution path.

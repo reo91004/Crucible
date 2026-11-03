@@ -155,7 +155,7 @@ Validate before starting:
 
 Claude Code can use the same CLI and project state. For host-agent instructions, the companion [ai-prompts repository](https://github.com/reo91004/ai-prompts) provides a shared [Crucible skill](https://github.com/reo91004/ai-prompts/tree/main/skills/crucible) for OpenCode, Claude Code, and Codex.
 
-When using that skill, set `CRUCIBLE_ROOT` to your Crucible checkout, or install the CLI on `PATH`. In Claude Code, invoke `/crucible debate QUESTION` or ask the installed skill to investigate the evidence. The kit supplies instructions and a launcher; the separate Crucible engine owns execution. Research state stays in the research project's `.crucible/`, never in the prompt kit.
+The default ai-prompts installer reuses a checkout under HOME or downloads it to `~/Crucible` and records its path. No path setting is required; `CRUCIBLE_ROOT` or a CLI on `PATH` can override discovery. Existing checkouts are preserved. In Claude Code, invoke `/crucible debate QUESTION` or ask the installed skill to investigate the evidence. The kit supplies instructions and a launcher; the separate Crucible engine owns execution. Research state stays in the research project's `.crucible/`, never in the prompt kit.
 
 Direct CLI use also works without the kit:
 
