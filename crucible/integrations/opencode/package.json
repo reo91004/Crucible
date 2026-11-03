@@ -1,0 +1,7 @@
+{
+  "name": "crucible-opencode",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": "./index.js",
+  "private": true
+}

@@ -1,0 +1,40 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Python tests (no live model calls)
+        run: python -m unittest discover -s tests -v
+      - name: OpenCode bridge tests
+        run: node --test tests/test_opencode_bridge.mjs
+      - name: Install package
+        run: python -m pip install --no-deps .
+      - name: Run installed synthetic example
+        working-directory: ${{ runner.temp }}
+        shell: bash
+        run: |
+          project="$(mktemp -d)"
+          crucible init --project "$project"
+          crucible run --project "$project" > "$project/result.json"
+          python -c 'import json,sys; r=json.load(open(sys.argv[1])); assert r["state"] == "stopped" and r["run_count"] == 4 and r["call_count"] == 0' "$project/result.json"
+          crucible link-opencode --project "$project"
